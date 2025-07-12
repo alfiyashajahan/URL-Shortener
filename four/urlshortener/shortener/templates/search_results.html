@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="padding: 40px; font-family: sans-serif;">
+
+  <h2 class="text-center text-primary">🔍 Search Results</h2>
+
+  <!-- Search Query -->
+  {% if query %}
+    <p class="text-center">Results for "<strong>{{ query }}</strong>"</p>
+  {% endif %}
+
+  <!-- Results List -->
+  <div class="container mt-4">
+    {% if results %}
+      <div class="list-group">
+        {% for url in results %}
+          <div class="list-group-item mb-3 shadow-sm p-3 rounded">
+            <h5>{{ url.title }}</h5>
+            <p class="mb-1">
+              Original URL: 
+              <a href="{{ url.original_url }}" target="_blank">{{ url.original_url }}</a>
+              <br>
+              Short URL:
+              <a href="{% url 'redirect_short_url' code=url.short_url %}" target="_blank">
+                {{ request.get_host }}/{{ url.short_url }}
+              </a>
+              <br>
+              Created: {{ url.created_at|date:"M d, Y H:i" }}<br>
+              {% if url.visited_at %}
+                Last Visited: {{ url.visited_at|date:"M d, Y H:i" }}<br>
+              {% endif %}
+              Visited: {{ url.visit_count }} times
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center text-muted">No results found.</p>
+    {% endif %}
+  </div>
+
+  <!-- Back Button -->
+  <div class="text-center mt-4">
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">← Back to Dashboard</a>
+  </div>
+
+</body>
+</html>

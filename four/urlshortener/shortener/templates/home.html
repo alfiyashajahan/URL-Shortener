@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to URL Shortener</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .welcome-box {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .welcome-heading {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #dc3545;
+      margin-bottom: 20px;
+    }
+
+    .welcome-description {
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .btn-group a {
+      margin: 0 10px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border-radius: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .welcome-box {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <h1 class="welcome-heading">Welcome to the URL Shortener</h1>
+    <p class="welcome-description">
+      Shorten long links, manage them efficiently, and track your click stats — all from one clean dashboard.
+    </p>
+
+    <div class="btn-group">
+      <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+      <a href="{% url 'signup' %}" class="btn btn-success">Sign Up</a>
+    </div>
+  </div>
+</body>
+</html>

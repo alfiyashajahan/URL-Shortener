@@ -1,0 +1,26 @@
+ {% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New URL</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="form-container">
+    <h2>Add New URL</h2>
+    {% if error %}
+  <div style="color: red; font-weight: bold; text-align: center; margin-bottom: 20px;">
+    {{ error }}
+  </div>
+{% endif %}
+
+   <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Shorten</button>
+</form>
+
+    <p><a href="{% url 'dashboard' %}">Back to Dashboard</a></p>
+</div>
+</body>
+</html>

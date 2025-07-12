@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f0f0f0;
+}
+.form-container {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+form input, form button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+}
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+.login-link a {
+  color: #2a7ae2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d9534f; /* soft red */
+}
+
